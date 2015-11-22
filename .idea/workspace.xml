@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ems/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.6802842">
+              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -58,10 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event_management.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="event_management.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ems/event_management.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6536412">
+            <state vertical-scroll-proportion="0.0">
               <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding />
             </state>
@@ -119,11 +119,11 @@
         <option value="$PROJECT_DIR$/ems/__init__.py" />
         <option value="$PROJECT_DIR$/ems/signals.py" />
         <option value="$PROJECT_DIR$/ems/management/commands/flight_intimation.py" />
-        <option value="$PROJECT_DIR$/ems/models.py" />
         <option value="$PROJECT_DIR$/ems/management/commands/event_delay.py" />
         <option value="$PROJECT_DIR$/ems/management/commands/flight_cancellation.py" />
         <option value="$PROJECT_DIR$/ems/management/commands/flight_delay.py" />
         <option value="$PROJECT_DIR$/ems/event_management.py" />
+        <option value="$PROJECT_DIR$/ems/models.py" />
       </list>
     </option>
   </component>
@@ -614,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ems/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ems/management/commands/event_delay.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -666,9 +656,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ems/event_management.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6536412">
+        <state vertical-scroll-proportion="0.0">
           <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ems/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6802842">
+          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

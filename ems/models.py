@@ -83,8 +83,9 @@ class CarTrip(models.Model):
     drop = models.DateTimeField(default=now, blank=True)
     type = models.CharField(max_length=20)
     confirmation_no = models.CharField(max_length=20)
-    num_of_cars = models.IntegerField(default=1)
+    num_of_cars = models.IntegerField()
 
+    journey = models.ForeignKey(Journey, default=0)
 
     def __str__(self):
         return '%s'%(self.confirmation_no)
