@@ -3,6 +3,23 @@ from django.db import models
 # Create your models here.
 
 
+class Events:
+
+    REGISTRATION = 1
+    FLIGHT_DELAY= 2
+    FLIGHT_CANCEL = 3
+    EVERY_MINUTE = 4
+
+    @staticmethod
+    def on_register(obj):
+        print "On Register %s" %(obj)
+
+    @staticmethod
+    def on_every_minute(obj ):
+        print "On Every minute %s"%(obj)
+
+
+
 class Flight(models.Model):
 
     source = models.CharField(max_length=200)
@@ -45,3 +62,4 @@ class Journey(models.Model):
 
     def __str__(self):
         return '%s'%(self.customer)
+
