@@ -102,6 +102,21 @@ def process(datastr):
     getFlightInfo();
     getReference();
 
+def reset():
+    global departPlaces
+    departPlaces = []
+    global bookingReferences
+    bookingReferences = []
+    global departTimes
+    departTimes = []
+    global arrivalPlaces
+    arrivalPlaces = []
+    global arrivalTimes
+    arrivalTimes = []
+    global flightCodes
+    flightCodes = []
+    global flights
+    flights = []
 
 #process(f.read())
 #print populateFlights()
