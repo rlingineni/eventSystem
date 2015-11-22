@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # get the list of objects which are created within 1 minute
-        flights = Flight.objects.filter(departure__lt = datetime.now() + timedelta(hours=1)).include(convey=0)
+        flights = Flight.objects.filter(departure__lt = datetime.now() + timedelta(hours=1)).exclude(convey=1)
 
         # in all list of objects trigger event
         for j in flights:
