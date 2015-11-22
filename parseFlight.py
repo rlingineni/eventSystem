@@ -15,6 +15,14 @@ arrivalTimes = []
 flightCodes = []
 flights = []
 
+def getUniqueID():
+	root = tree.getroot()
+	root = root[2][0]
+	e_mail = root.get('value')
+	e_mail = e_mail.rstrip('>')
+	e_mail = e_mail.lstrip('<')
+	print e_mail
+
 def getDeparaturePlace():
 	root = tree.getroot()
 	root = root[5];
@@ -74,9 +82,9 @@ def populateFlights():
 		tempflight.reference_no = bookingReferences[index]
 		tempflight.save()
 		flights.append(tempflight)
-		
+		return flights
 
-
+''' getUniqueID();
 getDeparaturePlace();
 getArrivalPlace();
 getArrivalTimes();
@@ -84,9 +92,9 @@ getDepartTimes();
 getFlightInfo();
 getReference();
 
-populateFlights();
+populateFlights();  '''
 
-flightQuery.getFlightStatus(flights[1]);
+#flightQuery.getFlightStatus(flights[1]);
 
 
 
