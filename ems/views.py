@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from parseFlight import populateFlights, getUniqueID,process
 # Create your views here.
 
+from .models import Customer
+
 
 class EventTrigger(View):
 
@@ -20,6 +22,11 @@ class EventTrigger(View):
         email = getUniqueID()
         print flights, email
 
-        Customer.
-
+        ac = Customer.get(email=email)
+        if(ac != None):
+            j = ac.journey
+            for f in flights:
+                f.journey = j
+                f.save()
+        
         return HttpResponse(request.body, content_type='application/xhtml+xml')
