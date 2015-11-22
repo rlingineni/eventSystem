@@ -74,3 +74,10 @@ class Events:
         number = obj.journey.customer.mobile_number
         print msg
         send_msg(msg, number)
+
+    @staticmethod
+    def on_flight_added(obj):
+        msg = "flight Added to your journey %s"%(obj)
+        number = obj.journey.customer.mobile_number
+        print msg
+        send_msg(msg, number)

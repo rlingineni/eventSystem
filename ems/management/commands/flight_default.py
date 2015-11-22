@@ -4,7 +4,7 @@ from django.db.models import F
 from ems.event_management import Events
 
 class Command(BaseCommand):
-    help = " Flight Delay events "
+    help = " Flight Added events "
 
     def handle(self, *args, **kwargs):
         # get the list of objects which are created within 1 minute
@@ -13,6 +13,6 @@ class Command(BaseCommand):
         # in all list of objects trigger event
         for j in flights:
             # check which event is it
-            Events.on_flight_landed(j)
+            Events.on_flight_added(j)
             self.stdout.write("Successfully sent flight landed event on %s"%(j,))
             Flight.objects.filter(pk=j.pk).update(convey =1)
