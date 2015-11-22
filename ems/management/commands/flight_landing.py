@@ -14,5 +14,5 @@ class Command(BaseCommand):
         for j in flights:
             # check which event is it
             Events.on_flight_landed(j)
-            self.stdout.write("Successfully sent flight delay event on %s"%(j,))
+            self.stdout.write("Successfully sent flight landed event on %s"%(j,))
             Flight.objects.filter(pk=j.pk).update(convey =1)

@@ -48,8 +48,15 @@ class Event(models.Model):
 
 
 class Journey(models.Model):
+    STATUSES = (
+        (0, 'Default'),
+        (1, 'Started'),
+
+    )
     event = models.ForeignKey(Event, default=1)
     customer = models.ForeignKey(Customer)
+
+    status = models.IntegerField(default=0, blank=False, choices=STATUSES)
 
     def __str__(self):
         return '%s'%(self.customer)
@@ -58,10 +65,11 @@ class Journey(models.Model):
 class Flight(models.Model):
     STATUSES = (
         (0, 'Default'),
-        (1, 'OnTime'),
-        (2, 'Landed'),
-        (3, 'Delay'),
-        (4, 'Cancelled'),
+        (1, 'OnTime'),         # during journey
+        (2, 'Landed'),         # arrival
+        (3, 'Scheduled'),      # pre departure
+        (4, 'Delay'),          # ontime
+        (5, 'Cancelled'),      # cancel of flight
     )
 
     MSG_CONVEYED = (
@@ -78,6 +86,7 @@ class Flight(models.Model):
     reference_no = models.CharField(max_length=20)
     status = models.IntegerField(default=0, blank=False, choices=STATUSES)
     convey = models.IntegerField(default=0, blank=False, choices=MSG_CONVEYED)
+    statusstr = models.CharField(max_length=200, blank=True)
 
     journey = models.ForeignKey(Journey)
 

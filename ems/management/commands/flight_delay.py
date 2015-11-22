@@ -7,8 +7,8 @@ class Command(BaseCommand):
     help = " Flight Delay events "
 
     def handle(self, *args, **kwargs):
-        # get the list of objects which are created within 1 minute
-        flights = Flight.objects.filter(status=3).exclude(convey=1)
+
+        flights = Flight.objects.filter(status=4).exclude(convey=1)
 
         # in all list of objects trigger event
         for j in flights:

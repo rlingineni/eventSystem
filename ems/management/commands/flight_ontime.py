@@ -3,6 +3,7 @@ from ems.models import Journey, Flight
 from django.db.models import F
 from ems.event_management import Events
 
+
 class Command(BaseCommand):
     help = " Flight Delay events "
 

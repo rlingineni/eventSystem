@@ -18,9 +18,7 @@ def model_pre_change(sender, **kwargs):
 
     else:
         print "oldstatus",obj.status, "new status ",inst.status
-        if obj.status == inst.status:
-            inst.convey = 1
-        else:
+        if obj.status != inst.status:
             inst.convey = 0
 
 @receiver(post_save, sender = Journey )
