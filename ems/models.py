@@ -3,6 +3,9 @@ from datetime import datetime
 from django.utils.timezone import now
 from django.db.models.signals import pre_save
 
+
+from django.core.management.base import BaseCommand
+
 # Create your models here.
 
 
@@ -10,7 +13,7 @@ from django.db.models.signals import pre_save
 class Customer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    mobile_number = models.IntegerField('Phone Number')
+    mobile_number = models.CharField('Phone Number', max_length=20)
     trip_type = models.CharField(max_length=10)
 
     def __str__(self):

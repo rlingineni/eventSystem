@@ -6,9 +6,9 @@ AUTH_TOKEN = "da05a42d0afb1ccf5043b19467b73f6a"
 
 client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
 
-def send_msg(msg):
+def send_msg(msg, number):
     client.messages.create(
-	    to="9724087652",
+	    to=number,
 	    from_="+18179853232",
 	    body=msg,
     )
@@ -36,11 +36,13 @@ class Events:
 
         msg = "flight is delayed %s"%(obj,)
         print msg
-        send_msg(msg)
+        number = obj.journey.customer.mobile_number
+        send_msg(msg, number)
 
     @staticmethod
     def on_flight_intimation(obj):
 
         msg = "flight about to take off %s"%(obj)
+        number = obj.journey.customer.mobile_number
         print msg
-        send_msg(msg)
+        send_msg(msg, number)
