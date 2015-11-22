@@ -9,6 +9,7 @@ class Command(BaseCommand):
         # get the list of objects which are created within 1 minute
         jobj = Journey.objects.filter(flight__status = Flight.DELAY)
 
+        print "in flight delay handle"
         # in all list of objects trigger event
         for j in jobj:
             # check which event is it

@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-
+from django.utils.timezone import now
 # Create your models here.
 
 
@@ -48,8 +48,8 @@ class Flight(models.Model):
     source = models.CharField(max_length=200)
     destination = models.CharField(max_length=200)
     airline = models.CharField(max_length=10)
-    departure = models.DateTimeField(default=datetime.now(), blank=True)
-    arrival = models.DateTimeField(default=datetime.now(), blank=True)
+    departure = models.DateTimeField(default=now, blank=True)
+    arrival = models.DateTimeField(default=now, blank=True)
     reference_no = models.CharField(max_length=20)
     status = models.IntegerField(default=0, blank=False)
     convey = models.IntegerField(default=0, blank=False)
@@ -60,8 +60,8 @@ class Flight(models.Model):
 
 class CarTrip(models.Model):
     city = models.CharField(max_length=20)
-    pickup = models.DateTimeField(default=datetime.now(), blank=True)
-    drop = models.DateTimeField(default=datetime.now(), blank=True)
+    pickup = models.DateTimeField(default=now, blank=True)
+    drop = models.DateTimeField(default=now, blank=True)
     type = models.CharField(max_length=20)
     confirmation_no = models.CharField(max_length=20)
     num_of_cars = models.IntegerField(default=1)
@@ -88,7 +88,7 @@ class Event(models.Model):
     DELAY = 3
 
     name = models.CharField(max_length=100)
-    date = models.DateTimeField(default=datetime.now(), blank=True)
+    date = models.DateTimeField(default=now, blank=True)
     status = models.IntegerField(default=0, blank=False)
 
     def __str__(self):
