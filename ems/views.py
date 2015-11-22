@@ -19,4 +19,7 @@ class EventTrigger(View):
         flights = populateFlights()
         email = getUniqueID()
         print flights, email
+
+        Customer.
+
         return HttpResponse(request.body, content_type='application/xhtml+xml')

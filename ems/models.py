@@ -14,6 +14,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     mobile_number = models.CharField('Phone Number', max_length=20)
+    email = models.CharField('Email', max_length=30)
 
     def __str__(self):
         return '%s-%s'%(self.first_name, self.last_name)
