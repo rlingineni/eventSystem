@@ -14,8 +14,6 @@ arrivalTimes = []
 flightCodes = []
 flights = []
 
-f = open('/Users/puneet/Projects/events/tripData.xml')
-
 def read_data(data):
     global tree
     tree = ET.fromstring(data)
@@ -105,8 +103,8 @@ def process(datastr):
     getReference();
 
 
-process(f.read())
-print populateFlights()
+#process(f.read())
+#print populateFlights()
 #flightQuery.getFlightStatus(flights[1]);
 
 

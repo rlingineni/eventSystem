@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
-from parseFlight import populateFlights, getUniqueID,read_data
+from parseFlight import populateFlights, getUniqueID,process
 # Create your views here.
 
 
@@ -15,7 +15,7 @@ class EventTrigger(View):
 
     def post(self, request):
         print request.body
-        read_data(request.body)
+        process(request.body)
         flights = populateFlights()
         email = getUniqueID()
         print flights, email
