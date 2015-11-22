@@ -22,11 +22,13 @@ class EventTrigger(View):
         email = getUniqueID()
         print flights, email
 
-        ac = Customer.get(email=email)
+        ac = Customer.objects.filter(email=email).first()
         if(ac != None):
-            j = ac.journey
+            j = ac.journey_set.first()
+            print " journey ",j
             for f in flights:
+                print 'saving ',f
                 f.journey = j
                 f.save()
-        
+
         return HttpResponse(request.body, content_type='application/xhtml+xml')
