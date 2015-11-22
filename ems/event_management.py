@@ -77,7 +77,9 @@ class Events:
 
     @staticmethod
     def on_flight_added(obj):
-        msg = "flight Added to your journey %s"%(obj)
+        event = obj.journey.event
+        msg = "Hey, thanks for sending in your trip Data. We look forward " \
+              "to seeing you at %s on %s "%(event.name, event.date.strftime('%d, %b %Y %H:%M'))
         number = obj.journey.customer.mobile_number
         print msg
         send_msg(msg, number)
