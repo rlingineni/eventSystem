@@ -1,5 +1,8 @@
 import xml.etree.ElementTree as ET
+import urllib2
 import django
+import flightQuery 
+import json
 from ems.models import Flight
 
 
@@ -71,7 +74,8 @@ def populateFlights():
 		tempflight.reference_no = bookingReferences[index]
 		tempflight.save()
 		flights.append(tempflight)
-		print tempflight.reference_no
+		
+
 
 getDeparaturePlace();
 getArrivalPlace();
@@ -81,5 +85,8 @@ getFlightInfo();
 getReference();
 
 populateFlights();
+
+flightQuery.getFlightStatus(flights[1]);
+
 
 
