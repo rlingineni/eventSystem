@@ -22,6 +22,7 @@ class EventTrigger(View):
         email = getUniqueID()
         print flights, email
 
+
         ac = Customer.objects.filter(email=email).first()
         if(ac != None):
             j = ac.journey_set.first()

@@ -89,7 +89,7 @@ def populateFlights():
         tempflight.arrival = arrivalTimes[index]
         tempflight.reference_no = bookingReferences[index]
         flights.append(tempflight)
-        return flights
+    return flights
 
 def process(datastr):
     read_data(datastr)
