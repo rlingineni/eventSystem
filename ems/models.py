@@ -70,7 +70,7 @@ class Flight(models.Model):
     status = models.IntegerField(default=0, blank=False, choices=STATUSES)
     convey = models.IntegerField(default=0, blank=False, choices=MSG_CONVEYED)
 
-    journey = models.ForeignKey(Journey, default=0)
+    journey = models.ForeignKey(Journey)
 
     def __str__(self):
         return '%s - %s'%(self.source, self.destination)
