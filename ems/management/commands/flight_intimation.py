@@ -1,5 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
-from ems.models import Journey, Events
+from ems.models import Journey, Flight
+from ems.event_management import Events
 from datetime import datetime, timedelta
 
 #intimate the user before flight time
@@ -9,12 +10,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # get the list of objects which are created within 1 minute
-        jobj = Journey.objects.filter(flight__departure__lt = datetime.now() - timedelta(hours=1)).exclude(status = convey)
+        flights = Flight.objects.filter(departure__lt = datetime.now() + timedelta(hours=1)).include(convey=0)
 
         # in all list of objects trigger event
-        for j in jobj:
+        for j in flights:
             # check which event is it
             Events.on_flight_intimation(j)
-            j.convey=j.status
-            j.save()
             self.stdout.write("Successfully registered event on %s"%(j,))
+            Flight.objects.filter(pk=j.pk).update(convey =1)
