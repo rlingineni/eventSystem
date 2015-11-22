@@ -24,6 +24,13 @@ class Event(models.Model):
     CANCELLED = 2
     DELAY = 3
 
+    STATUSES = (
+        (0, 'Default'),
+        (1, 'OnTime'),
+        (2, 'Cancelled'),
+        (3, 'Delay'),
+    )
+
     MSG_CONVEYED = (
         (0, 'Message Due'),
         (1, 'No New Message'),
@@ -31,7 +38,7 @@ class Event(models.Model):
 
     name = models.CharField(max_length=100)
     date = models.DateTimeField(default=now, blank=True)
-    status = models.IntegerField(default=0, blank=False)
+    status = models.IntegerField(default=0, blank=False, choices=STATUSES)
     convey = models.IntegerField(default=0, blank=False, choices=MSG_CONVEYED)
 
     def __str__(self):
@@ -85,7 +92,7 @@ class CarTrip(models.Model):
     confirmation_no = models.CharField(max_length=20)
     num_of_cars = models.IntegerField()
 
-    journey = models.ForeignKey(Journey, default=0)
+    journey = models.ForeignKey(Journey)
 
     def __str__(self):
         return '%s'%(self.confirmation_no)
