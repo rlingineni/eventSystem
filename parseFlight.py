@@ -5,7 +5,7 @@ import flightQuery
 import json
 from ems.models import Flight
 
-
+tree = None
 tree = ET.parse('tripData.xml')
 departPlaces = []
 bookingReferences = []
@@ -15,13 +15,18 @@ arrivalTimes = []
 flightCodes = []
 flights = []
 
+def read_data(data):
+	global tree
+	tree = ET.fromstring(data)
+
+
 def getUniqueID():
 	root = tree.getroot()
 	root = root[2][0]
 	e_mail = root.get('value')
 	e_mail = e_mail.rstrip('>')
 	e_mail = e_mail.lstrip('<')
-	print e_mail
+	return e_mail
 
 def getDeparaturePlace():
 	root = tree.getroot()
@@ -80,7 +85,6 @@ def populateFlights():
 		tempflight.departure = departTimes[index]
 		tempflight.arrival = arrivalTimes[index]
 		tempflight.reference_no = bookingReferences[index]
-		tempflight.save()
 		flights.append(tempflight)
 		return flights
 
