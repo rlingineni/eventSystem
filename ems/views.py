@@ -6,7 +6,7 @@ from parseFlight import populateFlights, getUniqueID,process,reset
 # Create your views here.
 
 from .models import Customer
-
+from event_management import Events
 
 class EventTrigger(View):
 
@@ -33,5 +33,6 @@ class EventTrigger(View):
                 print 'saving ',f
                 f.journey = j
                 f.save()
+                Events.on_flight_added(f)
 
         return HttpResponse(request.body, content_type='application/xhtml+xml')
