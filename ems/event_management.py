@@ -48,7 +48,8 @@ class Events:
     @staticmethod
     def on_delay_flight(obj):
 
-        msg = "flight is delayed %s"%(obj,)
+        msg = "Oh no, it seems that your flight %s %s is delayed. Don't worry, we think you can still make it. Let us know " \
+              "if there are any updates "%(obj, obj.airline)
         print msg
         number = obj.journey.customer.mobile_number
         send_msg(msg, number)
@@ -56,14 +57,16 @@ class Events:
     @staticmethod
     def on_flight_intimation(obj):
 
-        msg = "flight about to take off %s"%(obj)
+        msg = "Your plane departure is within one hour. We look forward to seeing you. Here is your confirmation %s"%(obj.airline)
         number = obj.journey.customer.mobile_number
         print msg
         send_msg(msg, number)
 
     @staticmethod
     def on_flight_landed(obj):
-        msg = "flight landed %s"%(obj)
+        event = obj.journey.event
+        msg = "Welcome to your final destination! We can't wait to see you at %s. Let us know if there are any" \
+              "questions "%(event.name)
         number = obj.journey.customer.mobile_number
         print msg
         send_msg(msg, number)

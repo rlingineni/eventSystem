@@ -33,6 +33,5 @@ class EventTrigger(View):
                 print 'saving ',f
                 f.journey = j
                 f.save()
-                Events.on_flight_added(f)
-
+            Events.on_flight_added(f)
         return HttpResponse(request.body, content_type='application/xhtml+xml')
